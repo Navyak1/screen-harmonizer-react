@@ -15,7 +15,7 @@ const Profile = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className="dark min-h-screen flex flex-col bg-[#0c0c0c] text-white">
+    <div className="dark min-h-screen w-full overflow-x-hidden bg-[#0c0c0c]">
       {/* Mobile header */}
       {isMobile && <MobileHeader />}
       
@@ -23,7 +23,7 @@ const Profile = () => {
         {/* Desktop sidebar */}
         {!isMobile && <DesktopSidebar />}
         
-        <div className="flex-1">
+        <div className="flex-1 w-full">
           {/* Desktop header */}
           {!isMobile && (
             <div className="border-b border-gray-800 px-6 py-4 flex justify-between items-center">
@@ -36,7 +36,7 @@ const Profile = () => {
           )}
           
           {/* Main Content */}
-          <div className="px-4 md:px-6 py-4">
+          <div className="px-4 md:px-6 py-4 w-full">
             {/* Navigation Tabs */}
             <Tabs defaultValue="overview" className="w-full">
               <TabsList className="bg-transparent w-full justify-start border-b border-gray-800">
