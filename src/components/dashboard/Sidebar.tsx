@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Home, Briefcase, Award, Activity, Settings } from "lucide-react";
 
 const Sidebar = () => {
@@ -10,11 +11,11 @@ const Sidebar = () => {
       </div>
       
       <nav className="flex flex-col items-center gap-8">
-        <NavItem icon={<Home size={20} />} active={true} />
-        <NavItem icon={<Briefcase size={20} />} active={false} />
-        <NavItem icon={<Award size={20} />} active={false} />
-        <NavItem icon={<Activity size={20} />} active={false} />
-        <NavItem icon={<Settings size={20} />} active={false} />
+        <NavItem icon={<Home size={20} />} active={true} path="/" />
+        <NavItem icon={<Briefcase size={20} />} active={false} path="/portfolio" />
+        <NavItem icon={<Award size={20} />} active={false} path="/experience" />
+        <NavItem icon={<Activity size={20} />} active={false} path="/analytics" />
+        <NavItem icon={<Settings size={20} />} active={false} path="/settings" />
       </nav>
     </div>
   );
@@ -22,17 +23,19 @@ const Sidebar = () => {
 
 const NavItem = ({ 
   icon, 
-  active 
+  active,
+  path
 }: { 
   icon: React.ReactNode, 
-  active: boolean 
+  active: boolean,
+  path: string 
 }) => {
   return (
-    <div className={`p-2 rounded-md cursor-pointer ${active ? 'bg-white/10' : ''}`}>
+    <Link to={path} className={`p-2 rounded-md cursor-pointer ${active ? 'bg-white/10' : ''}`}>
       <div className={`${active ? 'text-white' : 'text-muted-foreground'}`}>
         {icon}
       </div>
-    </div>
+    </Link>
   );
 };
 
